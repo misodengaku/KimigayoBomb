@@ -47,12 +47,16 @@ namespace KimigayoBomb
 						End = DateTime.ParseExact(x.stop, "yyyyMMddHHmmss K", null)
 					};
 					return y;
-				});
+				})
+				.OrderBy(x => x.Start);
 			foreach (var tvProgramme in bombList)
 			{
 				Console.WriteLine("Ch." + tvProgramme.Channnel);
 				Console.WriteLine("Start:" + tvProgramme.Start);
 				Console.WriteLine("End:" + tvProgramme.End);
+				Console.WriteLine("予想起立時刻: " + (tvProgramme.Start + new TimeSpan(0, 0, 20)));
+				Console.WriteLine("予想着席時刻: " + (tvProgramme.Start + new TimeSpan(0, 0, 78)));
+				Console.WriteLine();
 			}
 			Console.Write(bombList);
 		}
